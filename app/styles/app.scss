@@ -1,0 +1,58 @@
+@mixin element($element) {
+  &__#{$element} {
+    @content;
+  }
+}
+
+$font-family: "Helvetica";
+$tree: "/assets/images/tree.jpg";
+
+* {
+  box-sizing: border-box;
+  transition: .2s;
+  font-weight: 400;
+}
+
+html {
+  font-family: $font-family;
+  line-height: 1.5;
+  color: #999;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #FFFFFF;
+  height: 100%;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  border: none;
+  &:focus {
+    outline: none; }
+}
+
+button {
+  &:focus, &:active {
+    outline: none;
+  }
+}
+
+.hero-image {
+  @include element("container") {
+    height: 100vh;
+    background-image: url($tree);
+    background-position: top left;
+    background-size: auto 100%;
+  }
+
+  @include element("overlay") {
+    height: 100%;
+    background-color: rgba();
+  }
+}
