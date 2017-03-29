@@ -1,0 +1,13 @@
+{{#with model as |toc|}}
+  <div class="container">
+    <ul class="toc">
+      {{#each toc as |page|}}
+        <li class="toc__item">
+          {{#link-to "guide.page" page.page class="link link_primary"}}
+            {{page.title}}
+          {{/link-to}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+{{/with}}

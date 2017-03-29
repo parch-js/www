@@ -18,4 +18,6 @@ export default function () {
     this.hasClass('container_page'),
     this.use('cross-fade')
   );
+
+  this.transition(this.use('fade'));
 };

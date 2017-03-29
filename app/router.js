@@ -7,7 +7,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('guide', function() {});
+  this.route('guide', function() {
+    this.route('page', { path: '/:page' });
+  });
 
   this.route('getting-started', function() {
     this.route('page', { path: '/:page' });
