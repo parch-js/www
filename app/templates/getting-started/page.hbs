@@ -1,0 +1,23 @@
+{{#liquid-bind model class="container container_page" as |page|}}
+  <div class="markdown">
+    {{md-text text=(fr-markdown-file page.currentPageMarkdown) typopgrapher=true}}
+  </div>
+
+  <ul class="pagination">
+    {{#if page.previousPage}}
+      <li class="pagination__link pagination__link_previous">
+        {{#link-to "getting-started.page" page.previousPage.page class="link link_primary"}}
+          Previous: {{page.previousPage.title}}
+        {{/link-to}}
+      </li>
+    {{/if}}
+
+    {{#if page.nextPage}}
+      <li class="pagination__link pagination__link_next">
+        {{#link-to "getting-started.page" page.nextPage.page class="link link_primary"}}
+          Next: {{page.nextPage.title}}
+        {{/link-to}}
+      </li>
+    {{/if}}
+  </ul>
+{{/liquid-bind}}

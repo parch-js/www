@@ -7,7 +7,11 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.mount('docs');
+  this.route('guide', function() {});
+
+  this.route('getting-started', function() {
+    this.route('page', { path: '/:page' });
+  });
 });
 
 export default Router;

@@ -1,1 +1,28 @@
-{{outlet}}
+<nav class="global-nav">
+  <div class="global-nav__logo">
+    Parch
+  </div>
+
+  <ul class="global-nav__menu menu menu_inline">
+    <li class="menu__item menu__item_inline">
+      {{#link-to "index" class="link link_primary menu__link"}}
+        Home
+      {{/link-to}}
+    </li>
+    <li class="menu__item menu__item_inline">
+      {{#link-to "getting-started" class="link link_primary menu__link"}}
+        Getting Started
+      {{/link-to}}
+    </li>
+    <li class="menu__item menu__item_inline">
+      {{#link-to "guide" class="link link_primary menu__link"}}
+        Guide
+      {{/link-to}}
+    </li>
+    <li class="menu__item menu__item_inline">
+      <a class="link link_primary menu__link" href="https://parch-js.github.io" target="_blank">API Documentation</a>
+    </li>
+  </ul>
+</nav>
+
+{{liquid-outlet}}
