@@ -35,4 +35,11 @@ export default Ember.Route.extend({
       tableOfContents: TABLE_OF_CONTENTS
     }
   },
+
+  actions: {
+    willTransition() {
+      this._super(...arguments);
+      get(this, 'scroller').setup();
+    }
+  }
 });

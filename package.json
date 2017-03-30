@@ -52,7 +52,8 @@
   "ember-addon": {
     "paths": [
       "lib/docs",
-      "lib/guide"
+      "lib/guide",
+      "lib/scroll-tracker"
     ]
   }
 }
