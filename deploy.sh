@@ -1,10 +1,10 @@
 #!/bin/bash
 set -e
 
-npm i
+npm i && bower i && npm run build -- -e production
 
 if [ "$TRAVIS_BRANCH" == "master" ]; then
-  pushd docs &> /dev/null
+  pushd dist &> /dev/null
     git init
     git config user.name "AutoBot"
     git config user.email "dylan947@gmail.com"
