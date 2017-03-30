@@ -1,6 +1,9 @@
-{{#liquid-bind model class="container container_page" as |page|}}
+{{#liquid-bind model class="container container_page top" as |page|}}
   <div class="markdown">
-    {{md-text text=(fr-markdown-file page.currentPageMarkdown) typopgrapher=true}}
+    {{md-text
+      html=true
+      text=(fr-markdown-file page.currentPageMarkdown)
+      typopgrapher=true}}
   </div>
 
   <ul class="pagination">

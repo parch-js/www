@@ -1,5 +1,9 @@
 ## Controllers
 
+- <a class="link link_primary" href="#lifecycle-hooks">Lifecycle Hooks</a>
+- <a class="link link_primary" href="#dao">Dao</a>
+- <a class="link link_primary" href="#models">Models</a>
+
 Controllers handle your application logic. By providing the 5 basic CRUD actions,
 you can be up and running in no time.
 
@@ -64,7 +68,9 @@ POST   /foos
 PUT    /foos/:fooId
 DELETE /foos/:fooId
 ```
+<a class="link link_primary" href="#top">⬆ back to top</a>
 
+<a id="lifecycle-hooks"></a>
 ### Lifecycle Hooks
 
 Lifecycle hooks allow you to do work before and after the initial request. Each
@@ -118,7 +124,9 @@ export default UserController extends Controller {
   }
 }
 ```
+<a class="link link_primary" href="#top">⬆ back to top</a>
 
+<a id="dao"></a>
 ### Dao
 
 The dao is how you access your data. The base controller provides you with five
@@ -167,7 +175,9 @@ export default UserController extends Controller {
   }
 }
 ```
+<a class="link link_primary" href="#top">⬆ back to top</a>
 
+<a id="models"></a>
 ### Models
 
 In addition to the basic dao, you also have access to the raw model classes. The
@@ -192,3 +202,4 @@ export default UserController extends Controller {
   }
 }
 ```
+<a class="link link_primary" href="#top">⬆ back to top</a>

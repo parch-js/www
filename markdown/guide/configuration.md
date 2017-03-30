@@ -1,8 +1,17 @@
+<a id="toc"></a>
 ## Configuration
+
+- <a class="link link_primary" href="#authentication">Authentication</a>
+- <a class="link link_primary" href="#controllers">Controllers</a>
+- <a class="link link_primary" href="#database">Database</a>
+- <a class="link link_primary" href="#logging">Logging</a>
+- <a class="link link_primary" href="#server">Server</a>
+- <a class="link link_primary" href="#namespace">Namespace</a>
 
 Parch makes it easy to configure your API with sensible defaults. *Most* options
 can be left alone and will be configured for you, however each can be overridden.
 
+<a id="authentication"></a>
 ### Authentication
 
 Authentication in Parch is handled via [jwt](https://jwt.io/) and can be configured with the
@@ -31,7 +40,9 @@ const app = new Application({
   }
 });
 ```
+<a class="link link_primary" href="#top">⬆ back to top</a>
 
+<a id="controllers"></a>
 ### Controllers
 
 By default, Parch will look for your controllers in the controllers directory
@@ -48,7 +59,9 @@ const app = new Application({
   }
 });
 ```
+<a class="link link_primary" href="#top">⬆ back to top</a>
 
+<a id="database"></a>
 ### Database
 
 The database options allow you to configure both your database connection as well
@@ -76,7 +89,9 @@ const app = new Application({
   }
 });
 ```
+<a class="link link_primary" href="#top">⬆ back to top</a>
 
+<a id="logging"></a>
 ### Logging
 
 Parch offers its own instance of [Bunyan](https://github.com/trentm/node-bunyan)
@@ -123,9 +138,11 @@ const app = new Application({
   }
 });
 ```
+<a class="link link_primary" href="#top">⬆ back to top</a>
 
 **Note: in 2.x, all logging options will be combined in the `logging` option**
 
+<a id="server"></a>
 ### Server
 
 The server options allow you to configure your server as well as your
@@ -141,7 +158,9 @@ const app = new Application({
   }
 });
 ```
+<a class="link link_primary" href="#top">⬆ back to top</a>
 
+<a id="namespace"></a>
 ### Namespace
 
 Namespace allows you to add a global namespace to all your routes (e.g. `/api`)
@@ -153,3 +172,4 @@ const app = new Application({
   namespace: "api"
 });
 ```
+<a class="link link_primary" href="#top">⬆ back to top</a>

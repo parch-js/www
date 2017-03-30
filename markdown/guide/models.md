@@ -1,5 +1,8 @@
 ## Models
 
+- <a class="link link_primary" href="#relationships">Relationships</a>
+- <a class="link link_primary" href="#hooks-and-methods">Hooks, Methods, and Configuration</a>
+
 Models define your data. The base model provides you with ways to define your
 attributes, add relationships, and run lifecycle hooks. For all available definition
 options, see [sequelize](http://docs.sequelizejs.com/en/v3/docs/models-definition/#data-types)
@@ -27,7 +30,9 @@ export default class UserModel extends Model {
   }
 }
 ```
+<a class="link link_primary" href="#top">⬆ back to top</a>
 
+<a id="relationships"></a>
 ### Relationships
 
 Relationships are defined through the `associate` hook. Methods and accessors
@@ -59,7 +64,9 @@ export default class UserModel extends Model {
   }
 }
 ```
+<a class="link link_primary" href="#top">⬆ back to top</a>
 
+<a id="hooks-and-methods"></a>
 ### Lifecycle Hooks, Class Methods and Instance Methods
 
 The rest of model definition is done through the constructor. Lifecycle hooks,
@@ -120,3 +127,4 @@ export default class UserModel extends Model {
   }
 }
 ```
+<a class="link link_primary" href="#top">⬆ back to top</a>
