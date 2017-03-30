@@ -1,0 +1,15 @@
+#!/bin/bash
+set -e
+
+npm i
+
+if [ "$TRAVIS_BRANCH" == "master" ]; then
+  pushd docs &> /dev/null
+    git init
+    git config user.name "AutoBot"
+    git config user.email "dylan947@gmail.com"
+    git add -A
+    git commit -m "Deploy to GitHub pages"
+    git push --force "https://${GH_TOKEN}@${GH_REF}.git" master
+  popd &> /dev/null
+fi

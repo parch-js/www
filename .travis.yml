@@ -1,24 +1,23 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - $HOME/.npm
-    - $HOME/.cache # includes bowers cache
-
+  - "$HOME/.npm"
+  - "$HOME/.cache"
 before_install:
-  - npm config set spin false
-  - npm install -g bower phantomjs-prebuilt
-  - bower --version
-  - phantomjs --version
-
+- npm config set spin false
+- npm install -g bower phantomjs-prebuilt
+- bower --version
+- phantomjs --version
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+after_success: bash ./deploy.sh
+env:
+  global:
+  - GH_REF: github.com/parch-js/parch-js.github.io
+  - secure: ANLvxjhgGWQQbc1ds9nP6ftDGeyu9NReLUYxiCJirKNSde2ypI0lwQtpFC2P1B1MZ2GDQ3wwn2SKKmSvpP98BdykPmw60kq4GGVdm0Qg5UXMIEUDg+wIfYAsTxTlzjtwkH+s8PY70BodUKVajCEgokGPZdQKX1ScFygygNfUAVBCZ+Xc3amF9q+Y9c6YMlSAbP1SyFIcS389WdLr3fn/C/MUcXkl077gvTboZrBW+S0sUx7Inpw/gx2lLdqXdGaJUoKkqy4PL/jACr/IBil7DHglSHiK7ZpfX3tZBN8XwSLDBw5wlVMMDY77itKkv6LpowcRJaCiUbzI+hnOPNmUSpyFbzGEMcZqqdvuwSZMX6lqZQRaheSkKLt0V8WDqsN7XGRywlCcKq7ysFwMUDpfMqARw1a+HC3SuVvneLjWLL+HuAtuumXUZ+lhn5bJ4s1h/l/dvgJnU3lXx1TeL9S0bnd+anUu1XmGZvAaDwI3J5lCghE5/PvpRmJdt5rQT28C+wEUDOTjb4pAF/TvqfOwDsOL36USDRn39NxE0a9VV2cflIzmMUi801WSZK+6mfp2e7hAHyi0OPdn2LFLb+12cDGPyOdXgzVKX/e5+B20pTUTnLUDYmlQNrLTCZmddNznK1iWIa5m0jb8fFf2Wpeo5rJ1NmCweJwPiNd/NUrRGU8=
