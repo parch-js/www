@@ -1,8 +1,8 @@
 ## Controllers
 
-- <a class="link link_primary" href="#lifecycle-hooks">Lifecycle Hooks</a>
-- <a class="link link_primary" href="#dao">Dao</a>
-- <a class="link link_primary" href="#models">Models</a>
+- <a class="scrollable link link_primary" href="#lifecycle-hooks">Lifecycle Hooks</a>
+- <a class="scrollable link link_primary" href="#dao">Dao</a>
+- <a class="scrollable link link_primary" href="#models">Models</a>
 
 Controllers handle your application logic. By providing the 5 basic CRUD actions,
 you can be up and running in no time.
@@ -68,7 +68,7 @@ POST   /foos
 PUT    /foos/:fooId
 DELETE /foos/:fooId
 ```
-<a class="link link_primary" href="#top">⬆ back to top</a>
+<a class="scrollable link link_primary" href="#top">⬆ back to top</a>
 
 <a id="lifecycle-hooks"></a>
 ### Lifecycle Hooks
@@ -124,7 +124,7 @@ export default UserController extends Controller {
   }
 }
 ```
-<a class="link link_primary" href="#top">⬆ back to top</a>
+<a class="scrollable link link_primary" href="#top">⬆ back to top</a>
 
 <a id="dao"></a>
 ### Dao
@@ -175,7 +175,7 @@ export default UserController extends Controller {
   }
 }
 ```
-<a class="link link_primary" href="#top">⬆ back to top</a>
+<a class="scrollable link link_primary" href="#top">⬆ back to top</a>
 
 <a id="models"></a>
 ### Models
@@ -202,4 +202,4 @@ export default UserController extends Controller {
   }
 }
 ```
-<a class="link link_primary" href="#top">⬆ back to top</a>
+<a class="scrollable link link_primary" href="#top">⬆ back to top</a>

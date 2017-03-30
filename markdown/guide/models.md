@@ -1,7 +1,7 @@
 ## Models
 
-- <a class="link link_primary" href="#relationships">Relationships</a>
-- <a class="link link_primary" href="#hooks-and-methods">Hooks, Methods, and Configuration</a>
+- <a class="scrollable link link_primary" href="#relationships">Relationships</a>
+- <a class="scrollable link link_primary" href="#hooks-and-methods">Hooks, Methods, and Configuration</a>
 
 Models define your data. The base model provides you with ways to define your
 attributes, add relationships, and run lifecycle hooks. For all available definition
@@ -30,7 +30,7 @@ export default class UserModel extends Model {
   }
 }
 ```
-<a class="link link_primary" href="#top">⬆ back to top</a>
+<a class="scrollable link link_primary" href="#top">⬆ back to top</a>
 
 <a id="relationships"></a>
 ### Relationships
@@ -64,7 +64,7 @@ export default class UserModel extends Model {
   }
 }
 ```
-<a class="link link_primary" href="#top">⬆ back to top</a>
+<a class="scrollable link link_primary" href="#top">⬆ back to top</a>
 
 <a id="hooks-and-methods"></a>
 ### Lifecycle Hooks, Class Methods and Instance Methods
@@ -127,4 +127,4 @@ export default class UserModel extends Model {
   }
 }
 ```
-<a class="link link_primary" href="#top">⬆ back to top</a>
+<a class="scrollable link link_primary" href="#top">⬆ back to top</a>

@@ -1,12 +1,12 @@
 <a id="toc"></a>
 ## Configuration
 
-- <a class="link link_primary" href="#authentication">Authentication</a>
-- <a class="link link_primary" href="#controllers">Controllers</a>
-- <a class="link link_primary" href="#database">Database</a>
-- <a class="link link_primary" href="#logging">Logging</a>
-- <a class="link link_primary" href="#server">Server</a>
-- <a class="link link_primary" href="#namespace">Namespace</a>
+- <a class="scrollable link link_primary" href="#authentication">Authentication</a>
+- <a class="scrollable link link_primary" href="#controllers">Controllers</a>
+- <a class="scrollable link link_primary" href="#database">Database</a>
+- <a class="scrollable link link_primary" href="#logging">Logging</a>
+- <a class="scrollable link link_primary" href="#server">Server</a>
+- <a class="scrollable link link_primary" href="#namespace">Namespace</a>
 
 Parch makes it easy to configure your API with sensible defaults. *Most* options
 can be left alone and will be configured for you, however each can be overridden.
@@ -40,7 +40,7 @@ const app = new Application({
   }
 });
 ```
-<a class="link link_primary" href="#top">⬆ back to top</a>
+<a class="scrollable link link_primary" href="#top">⬆ back to top</a>
 
 <a id="controllers"></a>
 ### Controllers
@@ -59,7 +59,7 @@ const app = new Application({
   }
 });
 ```
-<a class="link link_primary" href="#top">⬆ back to top</a>
+<a class="scrollable link link_primary" href="#top">⬆ back to top</a>
 
 <a id="database"></a>
 ### Database
@@ -89,7 +89,7 @@ const app = new Application({
   }
 });
 ```
-<a class="link link_primary" href="#top">⬆ back to top</a>
+<a class="scrollable link link_primary" href="#top">⬆ back to top</a>
 
 <a id="logging"></a>
 ### Logging
@@ -138,7 +138,7 @@ const app = new Application({
   }
 });
 ```
-<a class="link link_primary" href="#top">⬆ back to top</a>
+<a class="scrollable link link_primary" href="#top">⬆ back to top</a>
 
 **Note: in 2.x, all logging options will be combined in the `logging` option**
 
@@ -158,7 +158,7 @@ const app = new Application({
   }
 });
 ```
-<a class="link link_primary" href="#top">⬆ back to top</a>
+<a class="scrollable link link_primary" href="#top">⬆ back to top</a>
 
 <a id="namespace"></a>
 ### Namespace
@@ -172,4 +172,4 @@ const app = new Application({
   namespace: "api"
 });
 ```
-<a class="link link_primary" href="#top">⬆ back to top</a>
+<a class="scrollable link link_primary" href="#top">⬆ back to top</a>
