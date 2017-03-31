@@ -120,6 +120,11 @@ strong {
   @include modifier("main") {
     padding: 0;
   }
+
+  @include modifier("page") {
+    margin: 0 auto;
+    max-width: 1224px;
+  }
 }
 
 .hero-image {
@@ -138,6 +143,7 @@ strong {
 
 .usage {
   text-align: center;
+
   @include element("actions") {
     display: flex;
     flex-direction: row;
@@ -158,6 +164,10 @@ strong {
     min-width: 250px;
     text-align: center;
     border-radius: 3px;
+  }
+
+  @include element("social") {
+    padding: 8px;
   }
 
   @include modifier("main") {
