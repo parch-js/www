@@ -10,6 +10,7 @@ export default {
   { page: 'models', title: 'Models' },
   { page: 'migrations', title: 'Migrations' },
   { page: 'logging-and-errors', title: 'Logging and Errors' },
-  { page: 'di', title: 'Dependency Injection' }
+  { page: 'di', title: 'Dependency Injection' },
+  { page: 'store', title: 'Accessing Data' }
   ]
 };
