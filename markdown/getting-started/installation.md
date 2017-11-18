@@ -29,19 +29,18 @@ You should now have the following structure
 │   └── db.js
 ├── lib
 │   ├── controllers
-│   │   └── foo_controller.js
+│   │   └── foo.js
 │   ├── data
 │   │   ├── logs
 │   │   └── migrations
 │   ├── models
-│   │   └── foo_model.js
+│   │   └── foo.js
 │   └── app.js
 ├── test
 │   ├── controllers
-│   │   └── foo_controller_tests.js
-│   ├── models
-│   │   └── foo_model_tests.js
-│   └── app_tests.js
+│   │   └── foo_tests.js
+│   └── models
+│       └── foo_tests.js
 ├── README.md
 ├── config.js
 ├── index.js

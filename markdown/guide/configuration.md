@@ -3,7 +3,9 @@
 
 - <a class="scrollable link link_primary" href="#authentication">Authentication</a>
 - <a class="scrollable link link_primary" href="#controllers">Controllers</a>
+- <a class="scrollable link link_primary" href="#serializers">Serializers</a>
 - <a class="scrollable link link_primary" href="#database">Database</a>
+- <a class="scrollable link link_primary" href="#initializers">Initializers</a>
 - <a class="scrollable link link_primary" href="#logging">Logging</a>
 - <a class="scrollable link link_primary" href="#server">Server</a>
 - <a class="scrollable link link_primary" href="#namespace">Namespace</a>
@@ -40,7 +42,7 @@ const app = new Application({
   }
 });
 ```
-<a class="scrollable link link_primary" href="#top">⬆ back to top</a>
+<a class="link link_primary" href="#toc">⬆ back to top</a>
 
 <a id="controllers"></a>
 ### Controllers
@@ -59,7 +61,52 @@ const app = new Application({
   }
 });
 ```
-<a class="scrollable link link_primary" href="#top">⬆ back to top</a>
+<a class="link link_primary" href="#toc">⬆ back to top</a>
+
+<a id="serializers"></a>
+### Serializers
+
+Serializers allow you to customize how your data is transformed. By default parchuses a plain JSONSerializer, however this can be overridden by specifying a serializer for each model you want to customize
+
+#### JSONSerializer
+
+The JSONSerializer is the most basic building block of all the serializers. It
+simply returns the exact instance that is passed to it.
+
+```javascript
+const instance = await UserModel.create({});
+
+const serialized = await serializer.normalizeResponse(instance, "createRecord");
+
+// instance === serialized
+```
+
+#### RESTSerializer
+
+The RESTSerializer formats your data following the `{ [key]: [instance(s)] }` format. This fits well the [Ember's RESTAdapter](https://www.emberjs.com/api/ember-data/2.15.3/classes/DS.RESTAdapter)
+and is based loosely on that concept. In addition to formatting the basic
+structure, this serializer also adds your model relationships automatically as
+an array of ids
+
+```javascript
+const instance = await UserModel.create({});
+
+const serialized = await serializer.normalizeResponse(instance, "createRecord")
+
+/**
+ * {
+ *   "user": {
+ *     "someHasMany": [1, 2, 3]
+ *   }
+ * }
+ */
+```
+
+#### JSONAPISerializer
+
+> TBD
+
+<a class="link link_primary" href="#toc">⬆ back to top</a>
 
 <a id="database"></a>
 ### Database
@@ -89,7 +136,28 @@ const app = new Application({
   }
 });
 ```
-<a class="scrollable link link_primary" href="#top">⬆ back to top</a>
+<a class="link link_primary" href="#toc">⬆ back to top</a>
+
+<a id="initializers"></a>
+### Initializers
+
+Initializers allow you run customizations as your app boots. Here you can do things like register extra dependencies.
+
+```javascript
+module.exports = {
+  initialize(application, registry) {
+    registry.register("service:worker", Worker, {
+      instantiate: true,
+      singleton: true
+    });
+
+    registry.inject(application, "service:worker");
+  },
+
+  name: "worker"
+}
+```
+<a class="link link_primary" href="#toc">⬆ back to top</a>
 
 <a id="logging"></a>
 ### Logging
@@ -138,7 +206,7 @@ const app = new Application({
   }
 });
 ```
-<a class="scrollable link link_primary" href="#top">⬆ back to top</a>
+<a class="link link_primary" href="#toc">⬆ back to top</a>
 
 **Note: in 2.x, all logging options will be combined in the `logging` option**
 
@@ -158,7 +226,7 @@ const app = new Application({
   }
 });
 ```
-<a class="scrollable link link_primary" href="#top">⬆ back to top</a>
+<a class="link link_primary" href="#toc">⬆ back to top</a>
 
 <a id="namespace"></a>
 ### Namespace
@@ -172,4 +240,4 @@ const app = new Application({
   namespace: "api"
 });
 ```
-<a class="scrollable link link_primary" href="#top">⬆ back to top</a>
+<a class="link link_primary" href="#toc">⬆ back to top</a>
