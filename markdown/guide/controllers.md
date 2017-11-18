@@ -1,5 +1,6 @@
 ## Controllers
 
+- <a class="scrollable link link_primary" href="#structure">Folder Structure</a>
 - <a class="scrollable link link_primary" href="#lifecycle-hooks">Lifecycle Hooks</a>
 - <a class="scrollable link link_primary" href="#dao">Dao</a>
 - <a class="scrollable link link_primary" href="#models">Models</a>
@@ -7,38 +8,38 @@
 Controllers handle your application logic. By providing the 5 basic CRUD actions,
 you can be up and running in no time.
 
-`lib/controllers/user_controller.js`
+`lib/controllers/users.js`
 
 ```javascript
 import { Controller } from "parch";
 
 export default UserController extends Controller {
   index(req, res, next) {
-    return this.findAll(req.query).then(users => {
+    return this.store.findAll("user", req.query).then(users => {
       res.send(this.STATUS_CODES.SUCCESS, { users });
     }).catch(next);
   }
 
   show(req, res, next) {
-    return this.findOne(req.params.userId).then(user => {
+    return this.store.findOne("user", req.params.userId).then(user => {
       res.send(this.STATUS_CODES.SUCCESS, { user });
     }).catch(next);
   }
 
   create(req, res, next) {
-    return this.createRecord(req.body.user).then(user => {
+    return this.store.createRecord("user", req.body.user).then(user => {
       res.send(this.STATUS_CODES.CREATED, { user });
     }).catch(next);
   }
 
   update(req, res, next) {
-    return this.updateRecord(req.params.userId, req.body.user).then(user => {
+    return this.store.updateRecord("user", req.params.userId, req.body.user).then(user => {
       res.send(this.STATUS_CODES.SUCCESS, { user });
     }).catch(next);
   }
 
   destroy(req, res, next) {
-    return this.updateRecord(req.params.userId).then(() => {
+    return this.store.destroyRecord("user", req.params.userId).then(() => {
       res.send(this.STATUS_CODES.NO_CONTENT);
     }).catch(next);
   }
@@ -70,6 +71,68 @@ DELETE /foos/:fooId
 ```
 <a class="scrollable link link_primary" href="#top">⬆ back to top</a>
 
+<a id="structure"></a>
+### Folder Structure
+
+As your app continues to grow, keeping things clean is important to ensure quality and ease of navigation. To this end parch supports a nested controller structure, essentially placing each crud method in its own file.
+
+```
+├── lib
+│   ├── controllers
+│   │   ├── user
+│   │   │   ├── create.js
+│   │   │   ├── destroy.js
+│   │   │   ├── index.js
+│   │   │   ├── show.js
+│   │   │   └── update.js
+```
+
+#### Resource
+
+With this structure in place there are two notable changes. First, the crud method name has changed to `model`.
+
+```
+export default class CreateUserController extends parch.Controller {
+  model(req, res, next) {
+    db.Users.create(req.body.user).then(user => {
+      res.send(200, { user });
+    }).catch(next);
+  }
+}
+```
+
+In addition to the main action change, hooks have also been renamed and are
+defined directly as class methods.
+
+```
+export default class CreateUserController extends parch.Controller {
+  beforeModel(req, res, next) {
+  }
+
+  model(req, res, next) {
+  }
+
+  afterModel(req, res, next) {
+  }
+}
+```
+
+#### Route & Namespace
+
+With the nested folder structure, `route` and `namespace` continue to work the same,
+only now they as well are defined in their own file.
+
+```
+app.map(function () {
+  this.route("/foo/bar", { using: "foo:bar", method: "get" });
+});
+```
+
+With this route defined, the router will look for the `bar.js` file inside the
+`foo` folder. When the route is hit, as with resource, the beforeModel, model, and afterModel methods will be called.
+
+<a class="scrollable link link_primary" href="#top">⬆ back to top</a>
+
 <a id="lifecycle-hooks"></a>
 ### Lifecycle Hooks
 
@@ -94,31 +157,31 @@ export default UserController extends Controller {
   }
 
   index(req, res, next) {
-    return this.findAll(req.query).then(users => {
+    return this.store.findAll("user", req.query).then(users => {
       res.send(this.STATUS_CODES.SUCCESS, { users });
     }).catch(next);
   }
 
   show(req, res, next) {
-    return this.findOne(req.params.userId).then(user => {
+    return this.store.findOne("user", req.params.userId).then(user => {
       res.send(this.STATUS_CODES.SUCCESS, { user });
     }).catch(next);
   }
 
   create(req, res, next) {
-    return this.createRecord(req.body.user).then(user => {
+    return this.store.createRecord("user", req.body.user).then(user => {
       res.send(this.STATUS_CODES.CREATED, { user });
     }).catch(next);
   }
 
   update(req, res, next) {
-    return this.updateRecord(req.params.userId, req.body.user).then(user => {
+    return this.store.updateRecord("user", req.params.userId, req.body.user).then(user => {
       res.send(this.STATUS_CODES.SUCCESS, { user });
     }).catch(next);
   }
 
   destroy(req, res, next) {
-    return this.updateRecord(req.params.userId).then(() => {
+    return this.store.destroyRecord("user", req.params.userId).then(() => {
       res.send(this.STATUS_CODES.NO_CONTENT);
     }).catch(next);
   }
@@ -141,35 +204,35 @@ import { Controller } from "parch";
 export default UserController extends Controller {
   index(req, res, next) {
     // findAll will return all records and takes an optional query object
-    return this.findAll(req.query).then(users => {
+    return this.store.findAll("user", req.query).then(users => {
       res.send(this.STATUS_CODES.SUCCESS, { users });
     }).catch(next);
   }
 
   show(req, res, next) {
     // findOne will return a single record and takes an id
-    return this.findOne(req.params.userId).then(user => {
+    return this.store.findOne("user", req.params.userId).then(user => {
       res.send(this.STATUS_CODES.SUCCESS, { user });
     }).catch(next);
   }
 
   create(req, res, next) {
     // builds, validates, and creates the record
-    return this.createRecord(req.body.user).then(user => {
+    return this.store.createRecord("user", req.body.user).then(user => {
       res.send(this.STATUS_CODES.CREATED, { user });
     }).catch(next);
   }
 
   update(req, res, next) {
     // updates the record
-    return this.updateRecord(req.params.userId, req.body.user).then(user => {
+    return this.store.updateRecord("user", req.params.userId, req.body.user).then(user => {
       res.send(this.STATUS_CODES.SUCCESS, { user });
     }).catch(next);
   }
 
   destroy(req, res, next) {
     // destroys the record
-    return this.updateRecord(req.params.userId).then(() => {
+    return this.store.destroyRecord("user", req.params.userId).then(() => {
       res.send(this.STATUS_CODES.NO_CONTENT);
     }).catch(next);
   }

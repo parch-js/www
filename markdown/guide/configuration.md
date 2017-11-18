@@ -166,24 +166,13 @@ Parch offers its own instance of [Bunyan](https://github.com/trentm/node-bunyan)
 with a default stream of stdout. The logger itself, a logging directory and custom
 serializers can be configured.
 
-To pass your own logger use the `log` option
-
-```javascript
-import { Application } from "parch";
-
-const app = new Application({
-  log: Bunyan.createLogger({ name: "api" })
-});
-```
-
-To add a log directory or custom serializers, use the `logging` option
-
 ```javascript
 import { Application } from "parch";
 
 const app = new Application({
   logging: {
     dir: path.resolve(__dirname, "lib/data/logs"),
+    logger: Bunyan.createLogger({ name: "api" })
     serializers: {
       req(req) {
         return {
@@ -207,8 +196,6 @@ const app = new Application({
 });
 ```
 <a class="link link_primary" href="#toc">⬆ back to top</a>
-
-**Note: in 2.x, all logging options will be combined in the `logging` option**
 
 <a id="server"></a>
 ### Server
