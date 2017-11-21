@@ -8,7 +8,7 @@ cache:
   - "$HOME/.npm"
 before_install:
 - yarn config set spin false
-- yarn install -g bower phantomjs-prebuilt
+- yarn global add bower phantomjs-prebuilt
 - bower --version
 - phantomjs --version
 install:
